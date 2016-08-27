@@ -22,11 +22,15 @@
   },
   "devDependencies": {
     "ava": "^0.16.0",
-    "babel-register": "^6.11.6",
+    "babelrc-rollup": "^3.0.0",
     "lerna": "2.0.0-beta.26",
     "mock-fs": "^3.11.0",
     "mountfs": "^0.4.2",
     "nyc": "^8.1.0",
+    "rollup": "^0.34.10",
+    "rollup-plugin-buble": "^0.13.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
     "xo": "^0.16.0"
   }
 }
