@@ -22,7 +22,7 @@ require('babel-register');
 //   },
 // }).on('cycle', function(event) { console.log(String(event.target)) }).run()
 
-require('./package-diff').default([
+require('./packages/pakaj/package-diff').default([
 	'../dev-setup/tray/src/github.com/trayio/frontend-apps/builder/**/*.js',
 	'../dev-setup/tray/src/github.com/trayio/frontend-apps/website/**/*.js',
 	'../dev-setup/tray/src/github.com/trayio/frontend-apps/shared/**/*.js',

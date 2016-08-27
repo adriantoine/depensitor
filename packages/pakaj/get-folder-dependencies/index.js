@@ -20,8 +20,7 @@ export default patterns => {
 				}
 
 				const fileContent = fs.readFileSync(resolvedName, 'utf8');
-				const fileDependencies = getFilesDependencies(fileContent);
-				return fileDependencies;
+				return getFilesDependencies(fileContent);
 			})
 		);
 

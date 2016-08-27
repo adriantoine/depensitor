@@ -1,0 +1,24 @@
+{
+	"license": "MIT",
+	"name": "pakaj",
+	"version": "1.0.0",
+	"description": "clean up your package.json file in a fast and efficient way",
+	"main": "index.js",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"babel-traverse": "^6.13.0",
+		"babel-types": "^6.13.0",
+		"babylon": "^6.9.0",
+		"benchmark": "^2.1.1",
+		"builtin-modules": "^1.1.1",
+		"globby": "^6.0.0",
+		"lodash.flatten": "^4.4.0",
+		"lodash.get": "^4.4.2",
+		"lodash.uniq": "^4.5.0",
+		"pify": "^2.3.0",
+		"pinkie-promise": "^2.0.1",
+		"throat": "^3.0.0"
+	}
+}
