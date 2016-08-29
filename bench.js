@@ -1,4 +1,4 @@
-require('buble/register');
+require('babel-register');
 
 // const Benchmark = require('benchmark')
 // const getFolderDependencies = require('./getFolderDependencies').default
@@ -22,10 +22,13 @@ require('buble/register');
 //   },
 // }).on('cycle', function(event) { console.log(String(event.target)) }).run()
 
-require('./packages/depensitor')([
-	'../dev-setup/tray/src/github.com/trayio/frontend-apps/builder/**/*.js',
-	'../dev-setup/tray/src/github.com/trayio/frontend-apps/website/**/*.js',
-	'../dev-setup/tray/src/github.com/trayio/frontend-apps/shared/**/*.js',
-	'../dev-setup/tray/src/github.com/trayio/frontend-apps/.storybook/**/*.js',
-	'../dev-setup/tray/src/github.com/trayio/frontend-apps/webpack/**/*.js',
-], require('../dev-setup/tray/src/github.com/trayio/frontend-apps/package')).then(val => console.log(val));
+require('./packages/depensitor/src').default({
+	paths: [
+		'../dev-setup/tray/src/github.com/trayio/frontend-apps/builder/**/*.js',
+		'../dev-setup/tray/src/github.com/trayio/frontend-apps/website/**/*.js',
+		'../dev-setup/tray/src/github.com/trayio/frontend-apps/shared/**/*.js',
+		'../dev-setup/tray/src/github.com/trayio/frontend-apps/.storybook/**/*.js',
+		'../dev-setup/tray/src/github.com/trayio/frontend-apps/webpack/**/*.js',
+	],
+	pkg: require('../dev-setup/tray/src/github.com/trayio/frontend-apps/package'),
+}).then(val => console.log(val));

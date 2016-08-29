@@ -5,9 +5,10 @@ import getFileDependencies from './get-file-dependencies';
 import getFolderDependencies from './get-folder-dependencies';
 import packageDiff from './package-diff';
 
-export default ({path, pkg}) => {
+export default ({paths, pkg}) => {
 	// const visitor = flow(plugins.visitor, getFileDependencies);
+	console.log(paths);
 
-	return getFolderDependencies(globby.sync(path), getFileDependencies)
+	return getFolderDependencies(globby.sync(paths), getFileDependencies)
 		.then(deps => packageDiff(deps, pkg));
 };
