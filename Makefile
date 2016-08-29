@@ -1,2 +1,2 @@
 build:
-	./node_modules/.bin/rollup -c packages/pakaj/rollup.config.js
+	./node_modules/.bin/rollup -c packages/depensitor/rollup.config.js

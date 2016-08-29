@@ -25,8 +25,8 @@ const babylonOptions = {
 		'functionBind',
 		'jsx',
 		'objectRestSpread',
-		'trailingFunctionCommas'
-	]
+		'trailingFunctionCommas',
+	],
 };
 
 export default file => {
@@ -49,7 +49,7 @@ export default file => {
 			}
 
 			return false;
-		}
+		},
 	});
 
 	return uniq(imports);

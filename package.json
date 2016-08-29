@@ -1,7 +1,7 @@
 {
   "private": true,
   "license": "ISC",
-  "name": "pakaj",
+  "name": "depensitor",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,18 +11,24 @@
     "watch": "ava --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Adrien Antoine <adriantoine@gmail.com> (http://adriantoine.com)",
   "ava": {
     "require": [
       "babel-register"
     ]
   },
   "xo": {
-    "esnext": true
+    "esnext": true,
+    "rules": {
+    	"import/no-extraneous-dependencies": 0,
+    	"comma-dangle": [2, "always-multiline"]
+    }
   },
   "devDependencies": {
     "ava": "^0.16.0",
-    "babelrc-rollup": "^3.0.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "buble": "^0.13.1",
     "lerna": "2.0.0-beta.26",
     "mock-fs": "^3.11.0",
     "mountfs": "^0.4.2",

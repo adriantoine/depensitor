@@ -10,11 +10,11 @@ test('makes a package difference', t => {
 				'oneHundredPackage',
 				'unusedDep',
 				'otherVar',
-				'@test/my-org'
+				'@test/my-org',
 			],
 			unused: [
-				'unused-addToNumber'
-			]
+				'unused-addToNumber',
+			],
 		});
 	});
 });

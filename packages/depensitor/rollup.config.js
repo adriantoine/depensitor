@@ -10,20 +10,20 @@ export default {
 	entry: path.resolve(__dirname, 'src/index.js'),
 	plugins: [
 		buble(),
-		nodeResolve()
+		nodeResolve(),
 	],
 	external,
 	targets: [
 		{
 			dest: path.resolve(__dirname, pkg.main),
 			format: 'umd',
-			moduleName: 'pakaj',
-			sourceMap: true
+			moduleName: 'depensitor',
+			sourceMap: true,
 		},
 		{
 			dest: path.resolve(__dirname, pkg['jsnext:main']),
 			format: 'es',
-			sourceMap: true
-		}
-	]
+			sourceMap: true,
+		},
+	],
 };

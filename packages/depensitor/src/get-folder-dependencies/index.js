@@ -1,15 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
-import globby from 'globby';
 import throat from 'throat';
 import flatten from 'lodash.flatten';
 import uniq from 'lodash.uniq';
 
-import getFilesDependencies from '../get-file-dependencies';
-
-export default patterns => {
-	const files = globby.sync(patterns);
+export default (files, dependencyFinder) => {
 	const deps = files
 		.map(
 			throat(os.cpus().length, file => {
@@ -20,7 +16,7 @@ export default patterns => {
 				}
 
 				const fileContent = fs.readFileSync(resolvedName, 'utf8');
-				return getFilesDependencies(fileContent);
+				return dependencyFinder(fileContent);
 			})
 		);
 
