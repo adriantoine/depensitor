@@ -14,10 +14,10 @@ module.exports = {
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "addToNumber": "^6.13.0",
-    "unused-addToNumber": "^6.13.0",
+    "dep-one": "^6.13.0",
+    "dep-five": "^6.13.0",
   },
   "devDependencies": {
-    "oneHundred": "^0.16.0"
+    "dep-two": "^0.16.0"
   }
 }

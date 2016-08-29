@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "bench": "node bench",
-    "test": "xo . && nyc --cache --reporter=text ava",
+    "test": "xo && nyc --cache --reporter=text ava",
     "watch": "ava --watch"
   },
   "keywords": [],
@@ -19,9 +19,16 @@
   },
   "xo": {
     "esnext": true,
+    "ignores": [
+    	"**/fixtures/**",
+    	"**/dist/**"
+    ],
     "rules": {
-    	"import/no-extraneous-dependencies": 0,
-    	"comma-dangle": [2, "always-multiline"]
+      "import/no-extraneous-dependencies": 0,
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ]
     }
   },
   "devDependencies": {
@@ -37,6 +44,7 @@
     "rollup-plugin-buble": "^0.13.0",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
+    "sinon": "^1.17.5",
     "xo": "^0.16.0"
   }
 }

@@ -3,19 +3,11 @@ import packageDiff from '../';
 import pkg from './fixtures/package';
 
 test('makes a package difference', t => {
-	t.plan(1);
-	return packageDiff('../../get-file-dependencies/__tests__/fixtures/**', pkg).then(deps => {
-		t.deepEqual(deps, {
-			missing: [
-				'oneHundredPackage',
-				'unusedDep',
-				'otherVar',
-				'@test/my-org',
-			],
-			unused: [
-				'unused-addToNumber',
-			],
-		});
+	const diff = packageDiff(['dep-one', 'dep-two', 'dep-four'], pkg);
+
+	t.deepEqual(diff, {
+		missing: ['dep-four'],
+		unused: ['dep-five'],
 	});
 });
 
