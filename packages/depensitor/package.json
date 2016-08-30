@@ -1,7 +1,7 @@
 {
   "license": "ISC",
   "name": "depensitor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "clean up your package.json file in a fast and efficient way",
   "main": "dist/index.js",
   "jsnext:main": "dist/es.js",
