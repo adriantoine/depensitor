@@ -3,19 +3,17 @@
   "license": "ISC",
   "name": "depensitor",
   "version": "1.0.0",
-  "description": "",
+  "description": "clean up your package.json file in a fast and efficient way",
   "main": "index.js",
   "scripts": {
     "bench": "node bench",
-    "test": "xo && nyc --cache --reporter=text ava",
+    "test": "xo && NODE_ENV=test nyc --cache --reporter=text ava",
     "watch": "ava --watch"
   },
   "keywords": [],
   "author": "Adrien Antoine <adriantoine@gmail.com> (http://adriantoine.com)",
   "ava": {
-    "require": [
-      "babel-register"
-    ]
+    "require": "babel-register"
   },
   "xo": {
     "esnext": true,

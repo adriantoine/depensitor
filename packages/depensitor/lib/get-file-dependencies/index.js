@@ -33,9 +33,10 @@ const babylonOptions = {
 };
 
 // Getters
-const getCallee = get(['node.callee.name']);
-const getRequireDepName = flow(get('node.arguments[0].value'), getRootDep);
-const getImportDepName = flow(get('node.source.value'), getRootDep);
+const getCallee = path => get(path, 'node.callee.name');
+const getRootDepFromPath = flow(get, getRootDep);
+const getRequireDepName = path => getRootDepFromPath(path, 'node.arguments[0].value');
+const getImportDepName = path => getRootDepFromPath(path, 'node.source.value');
 
 export default file => {
 	const imports = [];
