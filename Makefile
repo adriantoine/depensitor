@@ -4,4 +4,7 @@ build:
 test:
 	./node_modules/.bin/xo && NODE_ENV=test ./node_modules/.bin/nyc --cache --reporter=text ./node_modules/.bin/ava
 
-publish: build lerna-publish
+lerna-publish:
+	./node_modules/.bin/lerna publish --only-explicit-updates
+
+publish: test build lerna-publish
