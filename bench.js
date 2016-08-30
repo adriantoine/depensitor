@@ -22,7 +22,7 @@ require('babel-register');
 //   },
 // }).on('cycle', function(event) { console.log(String(event.target)) }).run()
 
-require('./packages/depensitor/src').default({
+require('./packages/depensitor/lib').default({
 	paths: [
 		'../dev-setup/tray/src/github.com/trayio/frontend-apps/builder/**/*.js',
 		'../dev-setup/tray/src/github.com/trayio/frontend-apps/website/**/*.js',

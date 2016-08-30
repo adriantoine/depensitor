@@ -1,5 +1,6 @@
 import path from 'path';
-import buble from 'rollup-plugin-buble';
+import babel from 'rollup-plugin-babel';
+import babelrc from 'babelrc-rollup';
 import nodeResolve from 'rollup-plugin-node-resolve';
 
 const pkg = require('./package.json');
@@ -7,10 +8,13 @@ const pkg = require('./package.json');
 const external = Object.keys(pkg.dependencies);
 
 export default {
-	entry: path.resolve(__dirname, 'src/index.js'),
+	entry: path.resolve(__dirname, 'lib/index.js'),
 	plugins: [
-		buble(),
-		nodeResolve(),
+		babel(babelrc()),
+		nodeResolve({
+			jsnext: true,
+			main: true,
+		}),
 	],
 	external,
 	targets: [

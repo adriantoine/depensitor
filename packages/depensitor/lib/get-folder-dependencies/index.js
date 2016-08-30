@@ -2,8 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import throat from 'throat';
-import flatten from 'lodash.flatten';
+import flow from 'lodash.flow';
 import uniq from 'lodash.uniq';
+import filter from 'lodash.filter';
+import flattenDeep from 'lodash.flattendeep';
+
+const flattenDedupe = flow(flattenDeep, filter(val => val), uniq);
 
 export default (files, dependencyFinder) => {
 	const deps = files
@@ -20,5 +24,5 @@ export default (files, dependencyFinder) => {
 			})
 		);
 
-	return Promise.all(deps).then(files => uniq(flatten(files)).filter(val => val));
+	return Promise.all(deps).then(files => flattenDedupe(files));
 };

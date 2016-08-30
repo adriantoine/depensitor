@@ -1,12 +1,15 @@
 import get from 'lodash.get';
+import flow from 'lodash.flow';
+import uniq from 'lodash.uniq';
+
 import {parse} from 'babylon';
 import traverse from 'babel-traverse';
 import * as t from 'babel-types';
 
-import uniq from 'lodash.uniq';
 import isModule from '../utils/is-module';
 import getRootDep from '../utils/get-root-dep';
 
+// Options for the babylon parser
 const babylonOptions = {
 	sourceType: 'module',
 	allowImportExportEverywhere: false,
@@ -29,6 +32,11 @@ const babylonOptions = {
 	],
 };
 
+// Getters
+const getCallee = get(['node.callee.name']);
+const getRequireDepName = flow(get('node.arguments[0].value'), getRootDep);
+const getImportDepName = flow(get('node.source.value'), getRootDep);
+
 export default file => {
 	const imports = [];
 	const ast = parse(file, babylonOptions);
@@ -36,12 +44,12 @@ export default file => {
 	traverse(ast, {
 		enter(path) {
 			let name = null;
-			if (t.isCallExpression(path.node) && get(path, 'node.callee.name') === 'require') {
-				name = getRootDep(get(path, 'node.arguments[0].value'));
+			if (t.isCallExpression(path.node) && getCallee(path) === 'require') {
+				name = getRequireDepName(path);
 			}
 
 			if (t.isImportDeclaration(path.node)) {
-				name = getRootDep(get(path, 'node.source.value'));
+				name = getImportDepName(path);
 			}
 
 			if (isModule(name)) {
