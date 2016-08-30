@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "jsnext:main": "dist/es.js",
   "keywords": [],
-  "author": "",
+  "author": "Adrien Antoine <adriantoine@gmail.com> (http://adriantoine.com)",
   "dependencies": {
     "babel-traverse": "^6.13.0",
     "babel-types": "^6.13.0",
