@@ -1,7 +1,7 @@
 {
   "license": "ISC",
   "name": "depensitor",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "dependencies visitor",
   "main": "dist/index.js",
   "jsnext:main": "dist/es.js",
