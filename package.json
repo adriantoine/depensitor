@@ -39,6 +39,7 @@
     "cz-conventional-changelog": "^1.2.0",
     "lerna": "2.0.0-beta.26",
     "mock-fs": "^3.11.0",
+    "mockery": "^1.7.0",
     "mountfs": "^0.4.2",
     "nyc": "^8.1.0",
     "rollup": "^0.34.10",

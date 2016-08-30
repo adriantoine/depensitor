@@ -2,12 +2,20 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import throat from 'throat';
-import uniq from 'lodash.uniq';
-import flattenDeep from 'lodash.flattendeep';
+import _ from 'lodash';
 
-const flattenDedupe = deps => uniq(flattenDeep(deps).filter(val => val));
+const flattenDedupe = deps => _.uniq(_.flattenDeep(deps).filter(val => val));
 
-export default (files, dependencyFinder) => {
+export default (files, visitors) => {
+	let visitor = visitors;
+	if (_.isArray(visitor) && visitor.length > 0) {
+		if (visitor.length === 1) {
+			visitor = visitor[0];
+		} else {
+			visitor = content => visitors.map(v => v(content));
+		}
+	}
+
 	const deps = files
 		.map(
 			throat(os.cpus().length, file => {
@@ -18,7 +26,8 @@ export default (files, dependencyFinder) => {
 				}
 
 				const fileContent = fs.readFileSync(resolvedName, 'utf8');
-				return dependencyFinder(fileContent);
+
+				return visitor(fileContent);
 			})
 		);
 
