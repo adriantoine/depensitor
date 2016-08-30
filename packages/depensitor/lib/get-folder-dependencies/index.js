@@ -4,7 +4,7 @@ import os from 'os';
 import throat from 'throat';
 import _ from 'lodash';
 
-const flattenDedupe = deps => _.uniq(_.flattenDeep(deps).filter(val => val));
+const flattenDedupe = _.flow(_.filter(val => val), _.flattenDeep, _.uniq);
 
 export default (files, visitors) => {
 	let visitor = visitors;

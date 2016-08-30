@@ -6,6 +6,7 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 const pkg = require('./package.json');
 
 const external = Object.keys(pkg.dependencies);
+external.push('lodash/fp');
 
 export default {
 	entry: path.resolve(__dirname, 'lib/index.js'),

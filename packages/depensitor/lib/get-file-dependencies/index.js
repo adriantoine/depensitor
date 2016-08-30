@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash/fp';
 
 import {parse} from 'babylon';
 import traverse from 'babel-traverse';
@@ -31,10 +31,9 @@ const babylonOptions = {
 };
 
 // Getters
-const getCallee = path => _.get(path, 'node.callee.name');
-const getRootDepFromPath = _.flow(_.get, getRootDep);
-const getRequireDepName = path => getRootDepFromPath(path, 'node.arguments[0].value');
-const getImportDepName = path => getRootDepFromPath(path, 'node.source.value');
+const getCallee = _.get('node.callee.name');
+const getRequireDepName = _.flow(_.get('node.arguments[0].value'), getRootDep);
+const getImportDepName = _.flow(_.get('node.source.value'), getRootDep);
 
 export default file => {
 	const imports = [];
