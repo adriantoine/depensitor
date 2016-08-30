@@ -7,7 +7,6 @@
   "main": "index.js",
   "scripts": {
     "bench": "node bench",
-    "test": "xo && NODE_ENV=test nyc --cache --reporter=text ava",
     "watch": "ava --watch"
   },
   "keywords": [],
