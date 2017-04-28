@@ -1,6 +1,12 @@
 import _ from 'lodash/fp';
 
+const EMPTY_OBJECT = {visitors: [], diffs: []};
+
 export default plugins => {
+	if(!plugins || plugin.length === 0) {
+		return Object.assign({}, EMPTY_OBJECT);
+	}
+
 	return plugins.reduce((obj, plugin) => {
 		if (plugin.visitor && _.isFunction(plugin.visitor)) {
 			obj.visitors.push(plugin.visitor);
@@ -11,5 +17,5 @@ export default plugins => {
 		}
 
 		return obj;
-	}, {visitors: [], diffs: []});
+	}, Object.assign({}, EMPTY_OBJECT));
 };

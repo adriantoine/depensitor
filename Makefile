@@ -8,3 +8,6 @@ lerna-publish:
 	./node_modules/.bin/lerna publish --only-explicit-updates
 
 publish: test build lerna-publish
+
+benchmark:
+	NODE_ENV=test node bench/index.js

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import throat from 'throat';
-import _ from 'lodash';
+import _ from 'lodash/fp';
 
 const flattenDedupe = _.flow(_.filter(val => val), _.flattenDeep, _.uniq);
 
